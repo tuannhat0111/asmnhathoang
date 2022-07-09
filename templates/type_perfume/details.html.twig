@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('product_user') }}" class="btn btn-default">Back to Todo List</a>
+    <hr/>
+    <h2 class="page-header">{{ typePerfumes.brand }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">brand: {{ typePerfumes.brand }}</li>
+    </ul>
+{% endblock %}

@@ -1,19 +1,58 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/starter-template/">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<h1 class="visually-hidden">Headers examples</h1>
+
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        <span class="fs-4">H&N Perfume</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="active"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="active"><a href="{{ path('typePerfume_user') }}" class="nav-link">Manager Brand</a></li>
+        <li class="#"><a href="{{ path('product_user') }}" class="nav-link">Manager Product</a></li>
+        <li class="#"><a href="{{ path('typePerfume_create') }}" class="nav-link">Add brand</a></li>
+        <li class="#"><a href="{{ path('Product_create') }}" class="nav-link">Add product</a></li>
+      </ul>
+    </header>
+  
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="alert alert-success">{{ flash_message }}</div>
+            {% endfor %}
+            {% for flash_message in app.session.flashBag.get('error') %}
+                <div class="alert alert-danger">{{ flash_message }}</div>
+            {% endfor %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+</div><!-- /.container -->
+
+{% block javascripts %}{% endblock %}
+
+</body>
 </html>
+
+

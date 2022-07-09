@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID Brand</th>
+                <th>Brand Perfume</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for typePerfume in typePerfumes %}
+                <tr>
+                    <th scope="row">{{ typePerfume.id }}</th>
+                    <td>{{ typePerfume.brand }}</td>
+                   
+                    <td>
+                        <a href="{{ path('typePerfume_details', {'id': typePerfume.id}) }} " class='btn btn-success'>View</a>
+                        <a href="{{ path('typePerfume_delete', {'id': typePerfume.id}) }}" class='btn btn-danger'>Delete</a>
+                        <a href="{{ path('typePerfume_edit', {'id': typePerfume.id}) }}" class='btn btn-default'>Edit</a> 
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

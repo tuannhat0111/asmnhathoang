@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID Perfume</th>
+                <th>Name Perfume</th>
+                <th>Brand Perfume</th>
+                <th>Quantity Perfume</th>
+                <th>Price Perfume</th>
+                <th>Information Perfume</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <th scope="row">{{ product.id }}</th>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.brand }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.information }}</td>
+                   
+                    <td>
+                        <a href="{{ path('Product_details', {'id': product.id}) }} " class='btn btn-success'>View</a>
+                        <a href="{{ path('Product_delete', {'id': product.id}) }}" class='btn btn-danger'>Delete</a>
+                        <a href="{{ path('Product_edit', {'id': product.id}) }}" class='btn btn-default'>Edit</a> 
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

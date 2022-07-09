@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="brand">brand:</label>
+        {{ form_widget(form.brand,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'brand'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="name">name:</label>
+        {{ form_widget(form.name,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="quantity">quantity:</label>
+        {{ form_widget(form.quantity,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'quantity'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="price">price:</label>
+        {{ form_widget(form.price,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'price'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="information">information:</label>
+        {{ form_widget(form.information,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'information'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="edit_todo" value="Edit" class="btn btn-primary"/>
+    {{ form_end(form) }}
+{% endblock %}
